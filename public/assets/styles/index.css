@@ -1,0 +1,53 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-container{
+    display: grid;
+    justify-content: center;
+}
+
+.main-container div{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#results{
+    display: grid;
+    justify-content: center;
+}
+
+#results div{
+    display: grid;
+    justify-content: center;
+}
+
+.title-results {
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.title-results h2{
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+#results div h3{
+ margin-top: 5px;
+ margin-bottom: 5px;
+}
+
+
+.FileContainer {
+    display: grid;
+}
+
+.FileContainer button {
+    margin-top: 3%;
+}
+
+#containerForm{
+    display: none;
+}
