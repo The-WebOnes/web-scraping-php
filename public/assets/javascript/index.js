@@ -1,6 +1,6 @@
-const SEARCH_SERVICE = `http://localhost/projects/webbot/Server/services/queryService.php`;
-const GET_LINKS_SERVICE = `http://localhost/projects/webbot/Server/services/getLinks.php`;
-const STORE_SERVICE = `http://localhost/projects/webbot/Server/services/storeService.php`;
+const SEARCH_SERVICE = `http://localhost/ADA 10-WebBots/Server/services/queryService.php`;
+const GET_LINKS_SERVICE = `http://localhost/ADA 10-WebBots/Server/services/getLinks.php`;
+const STORE_SERVICE = `http://localhost/ADA 10-WebBots/Server/services/storeService.php`;
 
 const SEARCH_INPUT = document.getElementById("SearchInput");
 const SEARCH_BUTTON = document.getElementById("buttonSearch");
@@ -9,6 +9,10 @@ const ADD_LINK_BUTTON = document.getElementById("Addlink");
 const LINKS_INPUT = document.getElementById("LinksInput");
 const CONTAINER_FORM = document.getElementById("containerForm");
 const SEND_LINKS_BUTTON = document.getElementById("SummitButton");
+const CHECK = document.getElementById("check");
+
+let waitTime;
+CHECK.style.display = "none";
 
 const getResponse = async (direction) => {
   try {
@@ -33,7 +37,9 @@ ADD_LINK_BUTTON.addEventListener("click", () => {
 });
 
 SEND_LINKS_BUTTON.addEventListener("click", () => {
+  CHECK.style.display = "block";
   CONTAINER_FORM.style.display = "none";
+  delay();
   summitLinks(STORE_SERVICE);
 });
 
@@ -51,10 +57,10 @@ const summitLinks = async (direction) => {
       method: "POST",
       body: formData,
     });
-
     let data = await response.text();
     console.log(data);
     LINKS_INPUT.value = "";
+
   } catch (error) {
     console.log(error);
   }
@@ -79,3 +85,10 @@ const getLinks = async (direction) => {
       console.log(error);
     }
   };
+
+  function delay() {
+    setTimeout(()=>{
+      CHECK.style.display = "none";
+  },1500);
+  }
+  
